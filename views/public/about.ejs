@@ -1,54 +1,86 @@
 <%- layout('/layouts/main') %>
 
-<div class="py-16 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-12">
-            <h1 class="text-4xl font-bold text-gray-900">About Royal Wedding Planners</h1>
-            <p class="mt-4 text-xl text-gray-600">Creating Unforgettable Wedding Experiences</p>
-        </div>
+<div class="bg-white py-20">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div>
-                <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed" alt="Wedding Planning" class="rounded-lg shadow-lg">
-            </div>
-            <div>
-                <h2 class="text-3xl font-bold mb-6">Our Story</h2>
-                <p class="text-gray-600 mb-4">
-                    Royal Wedding Planners has been creating magical wedding experiences for over a decade. Our passion for perfection and attention to detail has made us one of the most sought-after wedding planning companies.
-                </p>
-                <p class="text-gray-600 mb-4">
-                    We believe that every wedding should be as unique as the couple themselves. Our team of experienced planners works tirelessly to ensure that your special day exceeds all expectations.
-                </p>
-                <p class="text-gray-600">
-                    From intimate gatherings to grand celebrations, we handle every aspect of your wedding with professionalism and creativity.
-                </p>
-            </div>
-        </div>
-
-        <div class="mt-16">
-            <h2 class="text-3xl font-bold text-center mb-12">Why Choose Us?</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="text-center">
-                    <div class="text-4xl text-primary mb-4">🎨</div>
-                    <h3 class="text-xl font-bold mb-2">Creative Design</h3>
-                    <p class="text-gray-600">Unique and personalized wedding themes that reflect your style</p>
-                </div>
-                <div class="text-center">
-                    <div class="text-4xl text-primary mb-4">⭐</div>
-                    <h3 class="text-xl font-bold mb-2">Experience</h3>
-                    <p class="text-gray-600">Over 10 years of experience in wedding planning</p>
-                </div>
-                <div class="text-center">
-                    <div class="text-4xl text-primary mb-4">👥</div>
-                    <h3 class="text-xl font-bold mb-2">Dedicated Team</h3>
-                    <p class="text-gray-600">Professional team committed to making your day perfect</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="mt-16 text-center">
-            <h2 class="text-3xl font-bold mb-8">Ready to Start Planning?</h2>
-            <a href="/booking" class="btn-primary">Book a Consultation</a>
-        </div>
+    <!-- Header Section -->
+    <div class="text-center mb-16">
+      <h1 class="text-4xl sm:text-5xl font-extrabold text-purple-900">About Royal Wedding Planners</h1>
+      <p class="mt-4 text-xl text-gray-600">Creating Unforgettable Wedding Experiences</p>
     </div>
+
+    <!-- Our Story -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      <div>
+        <img src="/img/hero-3.jpg" alt="Wedding Planning"
+          class="rounded-2xl shadow-2xl w-full object-cover max-h-[450px]">
+      </div>
+      <div>
+        <h2 class="text-3xl font-bold text-purple-900 mb-6">Our Story</h2>
+        <p class="text-gray-700 mb-4 leading-relaxed">
+          For over a decade, <span class="text-yellow-500 font-semibold">Royal Wedding Planners</span> has been turning dream weddings into reality. Our dedication to detail and commitment to perfection have made us a top-tier choice in the wedding industry.
+        </p>
+        <p class="text-gray-700 mb-4 leading-relaxed">
+          Every couple is unique, and so should be their wedding. We take pride in designing experiences that reflect the couple’s vision, traditions, and personality.
+        </p>
+        <p class="text-gray-700 leading-relaxed">
+          Whether it’s a small gathering or a grand celebration, we’re with you from the first meeting to the final farewell.
+        </p>
+      </div>
+    </div>
+
+    <!-- Why Choose Us -->
+    <div class="mt-24">
+      <h2 class="text-3xl font-bold text-center text-purple-900 mb-14">Why Choose Us?</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 text-center">
+
+        <!-- Creative Design -->
+        <div class="bg-purple-50 p-6 rounded-xl shadow hover:shadow-lg transition duration-300">
+          <div class="flex justify-center mb-4 text-purple-700">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M9.75 17.25v-6.5L3.5 17.25h16.5L14.25 10.75v6.5M9.75 17.25V3.75m4.5 0v13.5" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-purple-800 mb-2">Creative Design</h3>
+          <p class="text-gray-600">Unique and personalized wedding themes to match your style.</p>
+        </div>
+
+        <!-- Experience -->
+        <div class="bg-purple-50 p-6 rounded-xl shadow hover:shadow-lg transition duration-300">
+          <div class="flex justify-center mb-4 text-purple-700">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-purple-800 mb-2">10+ Years Experience</h3>
+          <p class="text-gray-600">A decade of trusted expertise in planning dream weddings.</p>
+        </div>
+
+        <!-- Dedicated Team -->
+        <div class="bg-purple-50 p-6 rounded-xl shadow hover:shadow-lg transition duration-300">
+          <div class="flex justify-center mb-4 text-purple-700">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M17 20h5v-2a3 3 0 00-3-3h-4m-6 5H2v-2a3 3 0 013-3h4m3-4a4 4 0 100-8 4 4 0 000 8zm6 0a4 4 0 100-8 4 4 0 000 8z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-purple-800 mb-2">Dedicated Team</h3>
+          <p class="text-gray-600">A passionate, professional team to guide your big day.</p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="mt-24 text-center">
+      <h2 class="text-3xl font-bold text-purple-900 mb-6">Ready to Start Planning?</h2>
+      <p class="text-gray-600 mb-8 text-lg">Let’s create something beautiful together.</p>
+      <a href="/booking"
+        class="inline-block bg-yellow-300 hover:bg-yellow-400 text-purple-900 font-semibold px-8 py-3 rounded-full transition duration-300 shadow-md">
+        Book a Consultation
+      </a>
+    </div>
+  </div>
 </div>

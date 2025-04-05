@@ -1,32 +1,32 @@
-<nav class="bg-purple-900 shadow-md">
+<!-- Navbar -->
+<nav id="navbar" class="sticky top-0 z-50 bg-purple-900 shadow-md py-2 transition-all duration-300">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center h-16">
         <!-- Logo -->
-        <div class="flex-shrink-0 flex items-center">
-          <a href="/">
-            <img class="h-10 w-auto" src="/images/logo.png" alt="Royal Wedding Planners Logo">
-          </a>
-        </div>
+        <a href="/" class="flex items-center gap-2">
+          <img class="w-auto h-32" src="/img/royal-logo.png" alt="Royal Logo" />
+        </a>
   
         <!-- Mobile Menu Button -->
-        <div class="sm:hidden">
-          <button id="menu-toggle" class="text-yellow-300 focus:outline-none">
-            <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-          </button>
-        </div>
+        <button id="menu-toggle"
+          class="sm:hidden flex items-center justify-center p-2 rounded-md text-yellow-300 hover:text-yellow-100 focus:outline-none transition duration-300">
+          <svg id="menu-icon" class="h-7 w-7 transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none"
+            viewBox="0 0 24 24" stroke="currentColor">
+            <path id="bar-1" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16" />
+            <path id="bar-2" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 12h16" />
+            <path id="bar-3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 18h16" />
+          </svg>
+        </button>
   
         <!-- Desktop Links -->
-        <div class="hidden sm:flex space-x-6 items-center">
-          <a href="/" class="text-yellow-300 hover:text-yellow-100 font-medium transition duration-200">Home</a>
-          <a href="/about" class="text-yellow-300 hover:text-yellow-100 font-medium transition duration-200">About</a>
-          <a href="/packages" class="text-yellow-300 hover:text-yellow-100 font-medium transition duration-200">Packages</a>
-          <a href="/gallery" class="text-yellow-300 hover:text-yellow-100 font-medium transition duration-200">Gallery</a>
-          <a href="/booking" class="text-yellow-300 hover:text-yellow-100 font-medium transition duration-200">Book Now</a>
+        <div class="hidden sm:flex items-center space-x-6">
+          <a href="/" class="text-yellow-300 hover:text-yellow-100 font-medium transition">Home</a>
+          <a href="/about" class="text-yellow-300 hover:text-yellow-100 font-medium transition">About</a>
+          <a href="/packages" class="text-yellow-300 hover:text-yellow-100 font-medium transition">Packages</a>
+          <a href="/gallery" class="text-yellow-300 hover:text-yellow-100 font-medium transition">Gallery</a>
+          <a href="/booking" class="text-yellow-300 hover:text-yellow-100 font-medium transition">Book Now</a>
           <a href="/contact"
-            class="bg-yellow-300 text-purple-900 px-4 py-2 rounded-md font-medium hover:bg-yellow-200 transition duration-300">
+            class="bg-yellow-300 text-purple-900 px-4 py-2 rounded-full font-semibold hover:bg-yellow-200 transition duration-300">
             Contact
           </a>
         </div>
@@ -35,35 +35,47 @@
   
     <!-- Mobile Menu -->
     <div id="mobile-menu"
-      class="sm:hidden max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out pt-2 pb-4 space-y-1.5 bg-purple-900"
-      style="z-index: 10;">
-      <a href="/" class="block px-4 py-1.5 text-yellow-300 hover:text-yellow-100 font-medium transition">Home</a>
-      <a href="/about" class="block px-4 py-1.5 text-yellow-300 hover:text-yellow-100 font-medium transition">About</a>
-      <a href="/packages" class="block px-4 py-1.5 text-yellow-300 hover:text-yellow-100 font-medium transition">Packages</a>
-      <a href="/gallery" class="block px-4 py-1.5 text-yellow-300 hover:text-yellow-100 font-medium transition">Gallery</a>
-      <a href="/booking" class="block px-4 py-1.5 text-yellow-300 hover:text-yellow-100 font-medium transition">Book Now</a>
-      <a href="/contact"
-        class="block px-4 py-1.5 bg-yellow-300 text-purple-900 rounded-md font-medium text-center hover:bg-yellow-200 transition duration-300">
-        Contact
-      </a>
+      class="sm:hidden max-h-0 overflow-hidden opacity-0 transform scale-y-95 transition-all duration-500 ease-in-out bg-purple-900 px-4">
+      <div class="flex flex-col py-4 space-y-2">
+        <a href="/" class="text-yellow-300 hover:text-yellow-100 font-medium transition">Home</a>
+        <a href="/about" class="text-yellow-300 hover:text-yellow-100 font-medium transition">About</a>
+        <a href="/packages" class="text-yellow-300 hover:text-yellow-100 font-medium transition">Packages</a>
+        <a href="/gallery" class="text-yellow-300 hover:text-yellow-100 font-medium transition">Gallery</a>
+        <a href="/booking" class="text-yellow-300 hover:text-yellow-100 font-medium transition">Book Now</a>
+        <a href="/contact"
+          class="bg-yellow-300 text-purple-900 px-4 py-2 text-center rounded-full font-semibold hover:bg-yellow-200 transition duration-300">
+          Contact
+        </a>
+      </div>
     </div>
-  
-    <!-- Toggle Animation Script -->
-    <script type="module">
-      const toggle = document.getElementById('menu-toggle');
-      const menu = document.getElementById('mobile-menu');
-      let open = false;
-  
-      toggle.addEventListener('click', () => {
-        open = !open;
-        if (open) {
-          menu.classList.remove('max-h-0', 'opacity-0');
-          menu.classList.add('max-h-[500px]', 'opacity-100');
-        } else {
-          menu.classList.remove('max-h-[500px]', 'opacity-100');
-          menu.classList.add('max-h-0', 'opacity-0');
-        }
-      });
-    </script>
   </nav>
+  
+  <!-- Script for scroll blur -->
+  <script>
+    const navbar = document.getElementById('navbar');
+  
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 10) {
+        navbar.classList.add('backdrop-blur-md', 'bg-purple-900/70');
+      } else {
+        navbar.classList.remove('backdrop-blur-md', 'bg-purple-900/70');
+      }
+    });
+  
+    // Mobile toggle
+    const toggleBtn = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    let menuOpen = false;
+  
+    toggleBtn.addEventListener('click', () => {
+      menuOpen = !menuOpen;
+      if (menuOpen) {
+        mobileMenu.classList.remove('max-h-0', 'opacity-0', 'scale-y-95');
+        mobileMenu.classList.add('max-h-[500px]', 'opacity-100', 'scale-y-100');
+      } else {
+        mobileMenu.classList.remove('max-h-[500px]', 'opacity-100', 'scale-y-100');
+        mobileMenu.classList.add('max-h-0', 'opacity-0', 'scale-y-95');
+      }
+    });
+  </script>
   

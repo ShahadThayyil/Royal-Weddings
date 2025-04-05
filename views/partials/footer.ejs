@@ -1,30 +1,61 @@
-<footer class="bg-gray-900 text-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div>
-                <h3 class="text-xl font-bold mb-4">Royal Wedding Planners</h3>
-                <p class="text-gray-400">Making your special day unforgettable.</p>
-            </div>
-            <div>
-                <h3 class="text-xl font-bold mb-4">Quick Links</h3>
-                <ul class="space-y-2">
-                    <li><a href="/about" class="text-gray-400 hover:text-white">About Us</a></li>
-                    <li><a href="/packages" class="text-gray-400 hover:text-white">Packages</a></li>
-                    <li><a href="/gallery" class="text-gray-400 hover:text-white">Gallery</a></li>
-                    <li><a href="/contact" class="text-gray-400 hover:text-white">Contact</a></li>
-                </ul>
-            </div>
-            <div>
-                <h3 class="text-xl font-bold mb-4">Contact Us</h3>
-                <ul class="space-y-2 text-gray-400">
-                    <li>📞 +1 234 567 890</li>
-                    <li>📧 info@royalweddingplanners.com</li>
-                    <li>📍 123 Wedding Street, City, Country</li>
-                </ul>
-            </div>
+<footer class="bg-gray-900 text-white mt-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
+  
+        <!-- Company Info -->
+        <div>
+          <h3 class="text-2xl font-semibold mb-4 text-purple-400">Royal Wedding Planners</h3>
+          <p class="text-gray-400 leading-relaxed">Making your special day truly unforgettable with elegance and precision.</p>
         </div>
-        <div class="mt-8 pt-8 border-t border-gray-800 text-center text-gray-400">
-            <p>&copy; <%= new Date().getFullYear() %> Royal Wedding Planners. All rights reserved.</p>
+  
+        <!-- Quick Links -->
+        <div>
+          <h3 class="text-xl font-semibold mb-4 text-purple-300">Quick Links</h3>
+          <ul class="space-y-2 text-gray-400">
+            <li><a href="/about" class="hover:text-white transition">About Us</a></li>
+            <li><a href="/packages" class="hover:text-white transition">Packages</a></li>
+            <li><a href="/gallery" class="hover:text-white transition">Gallery</a></li>
+            <li><a href="/contact" class="hover:text-white transition">Contact</a></li>
+          </ul>
         </div>
+  
+        <!-- Contact Info -->
+        <div>
+          <h3 class="text-xl font-semibold mb-4 text-purple-300">Contact Us</h3>
+          <ul class="space-y-4 text-gray-400">
+            <li class="flex items-center gap-3">
+              <svg class="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" stroke-width="1.5"
+                viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M2.25 6.75l19.5 0m-16.5 0v10.5a2.25 2.25 0 002.25 2.25h9a2.25 2.25 0 002.25-2.25V6.75" />
+              </svg>
+              <span>info@royalweddingplanners.com</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <svg class="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" stroke-width="1.5"
+                viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M2.25 4.5l19.5 0M4.5 4.5l0 15m15 0l0 -15M12 17.25a.75.75 0 100-1.5.75.75 0 000 1.5z" />
+              </svg>
+              <span>+1 234 567 890</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 mt-1 text-purple-400" fill="none" stroke="currentColor" stroke-width="1.5"
+                viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M12 2.25c4.97 0 9 4.03 9 9 0 4.17-2.94 7.64-6.82 8.78L12 21.75l-2.18-1.97C5.94 18.89 3 15.42 3 11.25c0-4.97 4.03-9 9-9z" />
+              </svg>
+              <span>123 Wedding Street, City, Country</span>
+            </li>
+          </ul>
+        </div>
+  
+      </div>
+  
+      <!-- Footer Bottom -->
+      <div class="mt-12 pt-6 border-t border-gray-700 text-center text-gray-500 text-sm">
+        <p>&copy; <%= new Date().getFullYear() %> Royal Wedding Planners. All rights reserved.</p>
+      </div>
     </div>
-</footer>
+  </footer>
+  

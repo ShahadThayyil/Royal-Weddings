@@ -7,36 +7,43 @@
     <link href="/css/output.css" rel="stylesheet">
 </head>
 <body class="bg-gray-100">
+
+    <!-- Centered Login Form -->
     <div class="min-h-screen flex items-center justify-center">
-        <div class="max-w-md w-full bg-white rounded-lg shadow-md p-8">
-            <h2 class="text-2xl font-bold text-center mb-8">Admin Login</h2>
-            
+        <div class="max-w-md w-full bg-white rounded-lg shadow-lg p-8">
+            <h2 class="text-2xl font-bold text-center text-purple-900 mb-8">Admin Login</h2>
+
+            <!-- Error Message -->
             <% if (locals.error) { %>
                 <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
                     <%= error %>
                 </div>
             <% } %>
 
+            <!-- Login Form -->
             <form action="/admin/login" method="POST">
                 <div class="mb-4">
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
                         Username
                     </label>
-                    <input class="input-field" type="text" name="username" id="username" required>
+                    <input class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent" 
+                           type="text" name="username" id="username" required>
                 </div>
                 
                 <div class="mb-6">
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
                         Password
                     </label>
-                    <input class="input-field" type="password" name="password" id="password" required>
+                    <input class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent" 
+                           type="password" name="password" id="password" required>
                 </div>
                 
-                <button type="submit" class="w-full btn-primary">
+                <button type="submit" class="w-full bg-purple-600 text-white py-2 rounded-md hover:bg-purple-700 transition duration-300 ease-in-out">
                     Login
                 </button>
             </form>
         </div>
     </div>
+
 </body>
 </html>

@@ -10,14 +10,14 @@
 
     <!-- Image 1 -->
     <div id="slide1" class="absolute inset-0 bg-cover bg-center transition-opacity duration-1000 opacity-100"
-         style="background-image: url('https://plus.unsplash.com/premium_photo-1674235766088-80d8410f9523?fm=jpg&q=60&w=3000');">
-      <div class="absolute inset-0 bg-black bg-opacity-45"></div>
+         style="background-image: url('/img/hero-2.jpg');">
+      <div class="absolute inset-0 bg-black bg-opacity-55"></div>
     </div>
   
     <!-- Image 2 -->
     <div id="slide2" class="absolute inset-0 bg-cover bg-center transition-opacity duration-1000 opacity-0"
-         style="background-image: url('https://images.unsplash.com/photo-1523413651479-597eb2da0ad6?auto=format&q=60&w=3000');">
-      <div class="absolute inset-0 bg-black bg-opacity-45"></div>
+         style="background-image: url('/img/hero-2.jpg');">
+      <div class="absolute inset-0 bg-black bg-opacity-55"></div>
     </div>
   
     <!-- Content -->
@@ -43,9 +43,9 @@
     const slide2 = document.getElementById('slide2');
   
     const images = [
-      "https://plus.unsplash.com/premium_photo-1674235766088-80d8410f9523?fm=jpg&q=60&w=3000",
-      "https://images.unsplash.com/photo-1523413651479-597eb2da0ad6?auto=format&q=60&w=3000",
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&q=60&w=3000"
+      "/img/hero-2.jpg",
+      "/img/hero-3.jpg",
+      "/img/hero-1.png"
     ];
   
     let index = 0;
@@ -74,95 +74,198 @@
 
 
 <!-- Introduction Section -->
-<div class="relative py-24 bg-purple-50">
-  <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center" data-aos="fade-up">
-    <h2 class="text-5xl font-bold text-purple-600">Welcome to Royal Wedding Planners</h2>
-    <p class="mt-6 text-xl text-gray-700 font-medium">
-      Creating <span class="text-purple-600 font-semibold">unforgettable moments</span> for your special day.
-    </p>
-    <div class="mt-8">
-      <a href="/packages" class="bg-purple-600 text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-purple-700 transition-all duration-300 shadow-md">
-        View Our Packages
-      </a>
+<!-- Welcome Section -->
+<section class="relative py-24 bg-purple-50 overflow-hidden">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <!-- Heading -->
+      <div class="text-center mb-16" data-aos="fade-up">
+        <h2 class="text-5xl font-bold text-purple-600">Welcome to Royal Wedding Planners</h2>
+        <p class="mt-4 text-xl text-gray-700 font-medium">
+          Creating <span class="text-purple-600 font-semibold">unforgettable moments</span> for your special day.
+        </p>
+        <div class="mt-6">
+          <a href="/packages" class="bg-purple-600 text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-purple-700 transition-all duration-300 shadow-md">
+            View Our Packages
+          </a>
+        </div>
+      </div>
+  
+      <!-- Features Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10 text-center">
+        
+        <!-- Feature 1 -->
+        <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300" data-aos="fade-up">
+          <img src="https://cdn-icons-png.flaticon.com/512/2917/2917995.png" alt="Venue Icon" class="h-16 mx-auto mb-4" loading="lazy">
+          <h4 class="text-2xl font-semibold text-purple-600 mb-2">Elegant Venues</h4>
+          <p class="text-gray-600">Choose from a wide range of breathtaking venues, curated for your perfect day.</p>
+        </div>
+  
+        <!-- Feature 2 -->
+        <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300" data-aos="fade-up" data-aos-delay="100">
+          <img src="https://cdn-icons-png.flaticon.com/512/1128/1128677.png" alt="Decoration Icon" class="h-16 mx-auto mb-4" loading="lazy">
+          <h4 class="text-2xl font-semibold text-purple-600 mb-2">Stunning Decor</h4>
+          <p class="text-gray-600">Custom themes and elegant decorations that match your style and dreams.</p>
+        </div>
+  
+        <!-- Feature 3 -->
+        <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
+          <img src="https://cdn-icons-png.flaticon.com/512/2922/2922013.png" alt="Planning Icon" class="h-16 mx-auto mb-4" loading="lazy">
+          <h4 class="text-2xl font-semibold text-purple-600 mb-2">Personalized Planning</h4>
+          <p class="text-gray-600">Our expert planners work closely with you to ensure every detail is perfect.</p>
+        </div>
+  
+      </div>
+  
+      <!-- Mini Gallery -->
+      <div class="mt-20 grid grid-cols-1 md:grid-cols-3 gap-6" data-aos="fade-up">
+        <img src="/img/wed-1.jpeg" alt="Wedding 1" class="rounded-xl shadow-md hover:scale-105 transition-all duration-300" loading="lazy">
+        <img src="/img/wed-2.jpg" alt="Wedding 2" class="rounded-xl shadow-md hover:scale-105 transition-all duration-300" loading="lazy">
+        <img src="/img/wed-3.jpg" alt="Wedding 3" class="rounded-xl shadow-md hover:scale-105 transition-all duration-300" loading="lazy">
+      </div>
+  
+      <!-- Call to Action -->
+      <div class="mt-16 text-center" data-aos="fade-up">
+        <h3 class="text-3xl font-bold text-gray-800">Let’s craft your dream wedding together.</h3>
+        <p class="mt-2 text-gray-600">Start your journey with Royal Wedding Planners today.</p>
+        <a href="/contact" class="mt-6 inline-block bg-purple-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-purple-700 transition duration-300 shadow-md">
+          Contact Us
+        </a>
+      </div>
+  
     </div>
-  </div>
-</div>
+  </section>
+  
 
 <!-- Featured Packages -->
-<div class="py-20 bg-white">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <h2 class="text-4xl font-bold text-center text-purple-600 mb-14">Our Wedding Packages</h2>
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
-      <% packages.forEach(function(package) { %>
-        <div class="bg-purple-50 rounded-3xl shadow-md hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300" data-aos="zoom-in">
-          <img src="<%= package.imageUrl %>" alt="<%= package.name %>" class="w-full h-52 object-cover rounded-t-3xl">
-          <div class="p-6">
-            <h3 class="text-2xl font-semibold text-gray-800 mb-2"><%= package.name %></h3>
-            <p class="text-gray-600 mb-4 line-clamp-3"><%= package.description %></p>
-            <div class="flex items-center justify-between">
-              <span class="text-purple-600 font-bold text-lg">₹<%= package.price %></span>
-              <a href="/packages" class="bg-purple-600 text-white px-5 py-2 rounded-full font-medium hover:bg-purple-700 transition duration-300">Learn More</a>
+<div class="py-20 bg-gradient-to-b from-purple-50 via-white to-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-4xl font-bold text-center text-purple-700 mb-14">Our Wedding Packages</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+        <% packages.forEach(function(package) { %>
+          <div class="bg-white rounded-3xl shadow-lg border border-purple-100 hover:shadow-2xl hover:-translate-y-1 transform transition-all duration-300" data-aos="zoom-in">
+            <img src="<%= package.imageUrl %>" alt="<%= package.name %>" class="w-full h-52 object-cover rounded-t-3xl">
+  
+            <div class="p-6">
+              <div class="flex items-center gap-2 mb-2">
+                <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 11c0 1.657-1.343 3-3 3S6 12.657 6 11s1.343-3 3-3 3 1.343 3 3zM16 4h2a2 2 0 012 2v2m0 0a2 2 0 01-2 2h-2m0-4v4"></path>
+                </svg>
+                <h3 class="text-xl font-bold text-gray-800"><%= package.name %></h3>
+              </div>
+  
+              <p class="text-gray-600 text-sm mb-4 line-clamp-3 leading-relaxed"><%= package.description %></p>
+  
+              <div class="flex items-center justify-between mt-6">
+                <span class="text-purple-700 font-bold text-lg">₹<%= package.price %></span>
+                <a href="/packages" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-full text-sm font-semibold transition">Learn More</a>
+              </div>
             </div>
           </div>
-        </div>
-      <% }); %>
+        <% }); %>
+      </div>
     </div>
   </div>
-</div>
+  
 
 <!-- Gallery Preview -->
-<div class="py-20 bg-purple-50">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <h2 class="text-4xl font-bold text-center text-purple-600 mb-14">Our Gallery</h2>
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-      <% galleries.forEach(function(gallery) { %>
-        <div class="relative group overflow-hidden rounded-xl shadow-md" data-aos="fade-up">
-          <img src="<%= gallery.imageUrl %>" alt="<%= gallery.title %>" class="w-full h-48 object-cover transform group-hover:scale-105 transition duration-300 ease-in-out">
-          <div class="absolute inset-0 bg-white bg-opacity-60 opacity-0 group-hover:opacity-100 flex items-center justify-center transition duration-300">
-            <p class="text-gray-800 text-sm font-medium"><%= gallery.title %></p>
+<div class="relative py-24 bg-gradient-to-b from-purple-50 via-white to-purple-100 rounded-t-[4rem]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Heading -->
+      <div class="mb-14 text-center">
+        <h2 class="text-5xl font-bold text-purple-700">Our Gallery</h2>
+        <p class="mt-4 text-gray-600 text-lg max-w-xl mx-auto">Discover the beauty of love through our stunning wedding moments captured forever.</p>
+      </div>
+  
+      <!-- Gallery Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <% galleries.forEach(function(gallery) { %>
+          <div class="relative group overflow-hidden rounded-3xl shadow-xl bg-white" data-aos="zoom-in">
+            <!-- Image -->
+            <img src="<%= gallery.imageUrl %>" alt="<%= gallery.title %>" class="w-full h-60 object-cover rounded-3xl transform group-hover:scale-105 transition duration-500" />
+  
+            <!-- Overlay -->
+            <div class="absolute inset-0 bg-white bg-opacity-30 backdrop-blur-md flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300 rounded-3xl">
+              <div class="flex flex-col items-center text-center">
+                <svg class="w-10 h-10 text-purple-700 mb-2" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                </svg>
+                <p class="text-purple-800 font-semibold text-base"><%= gallery.title %></p>
+              </div>
+            </div>
           </div>
-        </div>
-      <% }); %>
+        <% }); %>
+      </div>
+  
+      <!-- Button -->
+      <div class="text-center mt-16">
+        <a href="/gallery" class="inline-flex items-center gap-2 bg-purple-700 text-white px-8 py-3 rounded-full text-lg font-semibold shadow-lg hover:bg-purple-800 transition duration-300">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+          </svg>
+          View Full Gallery
+        </a>
+      </div>
     </div>
-    <div class="text-center mt-12">
-      <a href="/gallery" class="bg-purple-600 text-white px-8 py-3 rounded-full font-semibold shadow-md hover:bg-purple-700 transition duration-300">View Full Gallery</a>
-    </div>
+  
+    <!-- Decorative curve -->
+    <div class="absolute top-0 left-0 w-full h-32 bg-white rounded-b-[3rem] z-[-1]"></div>
   </div>
-</div>
+  
 
 <!-- Testimonials -->
-<div class="py-20 bg-white">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <h2 class="text-4xl font-bold text-center text-purple-600 mb-14">What Our Couples Say</h2>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-      <div class="bg-purple-100 p-6 rounded-2xl shadow-lg border border-purple-200 hover:shadow-xl transition" data-aos="fade-up">
-        <p class="text-gray-700 italic mb-4">“They made our dream wedding come true. Everything was perfect!”</p>
-        <p class="font-bold text-purple-600">– Sarah & John</p>
-      </div>
-      <div class="bg-purple-100 p-6 rounded-2xl shadow-lg border border-purple-200 hover:shadow-xl transition" data-aos="fade-up" data-aos-delay="200">
-        <p class="text-gray-700 italic mb-4">“Professional team, amazing attention to detail. Highly recommended!”</p>
-        <p class="font-bold text-purple-600">– Emily & Michael</p>
-      </div>
-      <div class="bg-purple-100 p-6 rounded-2xl shadow-lg border border-purple-200 hover:shadow-xl transition" data-aos="fade-up" data-aos-delay="400">
-        <p class="text-gray-700 italic mb-4">“The best decision we made for our wedding. Thank you!”</p>
-        <p class="font-bold text-purple-600">– Jessica & David</p>
+<!-- Testimonials Section -->
+<section class="bg-white py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-4xl font-extrabold text-center text-purple-600 mb-14" data-aos="fade-down">What Our Couples Say</h2>
+  
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Testimonial Card -->
+        <div class="bg-purple-50 p-6 rounded-3xl shadow-md border border-purple-100 hover:shadow-xl transition-all duration-300" data-aos="fade-up">
+          <p class="text-gray-700 italic mb-4">“They made our dream wedding come true. Everything was perfect!”</p>
+          <p class="font-semibold text-purple-700">– Sarah & John</p>
+        </div>
+  
+        <!-- Testimonial Card -->
+        <div class="bg-purple-50 p-6 rounded-3xl shadow-md border border-purple-100 hover:shadow-xl transition-all duration-300" data-aos="fade-up" data-aos-delay="150">
+          <p class="text-gray-700 italic mb-4">“Professional team, amazing attention to detail. Highly recommended!”</p>
+          <p class="font-semibold text-purple-700">– Emily & Michael</p>
+        </div>
+  
+        <!-- Testimonial Card -->
+        <div class="bg-purple-50 p-6 rounded-3xl shadow-md border border-purple-100 hover:shadow-xl transition-all duration-300" data-aos="fade-up" data-aos-delay="300">
+          <p class="text-gray-700 italic mb-4">“The best decision we made for our wedding. Thank you!”</p>
+          <p class="font-semibold text-purple-700">– Jessica & David</p>
+        </div>
       </div>
     </div>
-  </div>
-</div>
-
-<!-- Call to Action -->
-<div class="bg-purple-600 py-20 relative overflow-hidden">
-  <div class="absolute inset-0 opacity-10 bg-[url('/images/flowers-bg.png')] bg-cover bg-center pointer-events-none"></div>
-  <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center" data-aos="zoom-in">
-    <h2 class="text-4xl font-bold text-white mb-6 leading-snug">Ready to Start Planning<br>Your Dream Wedding?</h2>
-    <div class="space-x-4 mt-4">
-      <a href="/booking" class="bg-white text-purple-600 px-8 py-3 rounded-full font-semibold shadow-lg hover:bg-gray-100 transition duration-300">Book Now</a>
-      <a href="https://wa.me/1234567890" target="_blank" class="bg-green-500 text-white px-8 py-3 rounded-full font-semibold shadow-lg hover:bg-green-600 transition duration-300">WhatsApp Us</a>
+  </section>
+  
+  <!-- Call to Action Section -->
+  <section class="bg-purple-600 py-20 relative">
+    <!-- Decorative Background Image (Optional) -->
+    <div class="absolute inset-0 opacity-10 bg-[url('/images/flowers-bg.png')] bg-cover bg-center pointer-events-none"></div>
+  
+    <!-- CTA Content -->
+    <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center" data-aos="zoom-in">
+      <h2 class="text-4xl md:text-5xl font-bold text-white mb-6 leading-snug">
+        Ready to Start Planning <br class="hidden sm:block" /> Your Dream Wedding?
+      </h2>
+  
+      <div class="flex flex-col sm:flex-row justify-center items-center gap-4 mt-6">
+        <a href="/booking"
+          class="bg-white text-purple-600 px-8 py-3 rounded-full font-semibold shadow-lg hover:bg-gray-100 transition duration-300 w-full sm:w-auto">
+          Book Now
+        </a>
+        <a href="https://wa.me/1234567890" target="_blank"
+          class="bg-green-500 text-white px-8 py-3 rounded-full font-semibold shadow-lg hover:bg-green-600 transition duration-300 w-full sm:w-auto">
+          WhatsApp Us
+        </a>
+      </div>
     </div>
-  </div>
-</div>
-
+  </section>
+  
 <!-- AOS JS -->
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 <script>AOS.init({ once: true, duration: 1000 });</script>
