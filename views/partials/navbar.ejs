@@ -1,0 +1,69 @@
+<nav class="bg-purple-900 shadow-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <!-- Logo -->
+        <div class="flex-shrink-0 flex items-center">
+          <a href="/">
+            <img class="h-10 w-auto" src="/images/logo.png" alt="Royal Wedding Planners Logo">
+          </a>
+        </div>
+  
+        <!-- Mobile Menu Button -->
+        <div class="sm:hidden">
+          <button id="menu-toggle" class="text-yellow-300 focus:outline-none">
+            <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+  
+        <!-- Desktop Links -->
+        <div class="hidden sm:flex space-x-6 items-center">
+          <a href="/" class="text-yellow-300 hover:text-yellow-100 font-medium transition duration-200">Home</a>
+          <a href="/about" class="text-yellow-300 hover:text-yellow-100 font-medium transition duration-200">About</a>
+          <a href="/packages" class="text-yellow-300 hover:text-yellow-100 font-medium transition duration-200">Packages</a>
+          <a href="/gallery" class="text-yellow-300 hover:text-yellow-100 font-medium transition duration-200">Gallery</a>
+          <a href="/booking" class="text-yellow-300 hover:text-yellow-100 font-medium transition duration-200">Book Now</a>
+          <a href="/contact"
+            class="bg-yellow-300 text-purple-900 px-4 py-2 rounded-md font-medium hover:bg-yellow-200 transition duration-300">
+            Contact
+          </a>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Mobile Menu -->
+    <div id="mobile-menu"
+      class="sm:hidden max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out pt-2 pb-4 space-y-1.5 bg-purple-900"
+      style="z-index: 10;">
+      <a href="/" class="block px-4 py-1.5 text-yellow-300 hover:text-yellow-100 font-medium transition">Home</a>
+      <a href="/about" class="block px-4 py-1.5 text-yellow-300 hover:text-yellow-100 font-medium transition">About</a>
+      <a href="/packages" class="block px-4 py-1.5 text-yellow-300 hover:text-yellow-100 font-medium transition">Packages</a>
+      <a href="/gallery" class="block px-4 py-1.5 text-yellow-300 hover:text-yellow-100 font-medium transition">Gallery</a>
+      <a href="/booking" class="block px-4 py-1.5 text-yellow-300 hover:text-yellow-100 font-medium transition">Book Now</a>
+      <a href="/contact"
+        class="block px-4 py-1.5 bg-yellow-300 text-purple-900 rounded-md font-medium text-center hover:bg-yellow-200 transition duration-300">
+        Contact
+      </a>
+    </div>
+  
+    <!-- Toggle Animation Script -->
+    <script type="module">
+      const toggle = document.getElementById('menu-toggle');
+      const menu = document.getElementById('mobile-menu');
+      let open = false;
+  
+      toggle.addEventListener('click', () => {
+        open = !open;
+        if (open) {
+          menu.classList.remove('max-h-0', 'opacity-0');
+          menu.classList.add('max-h-[500px]', 'opacity-100');
+        } else {
+          menu.classList.remove('max-h-[500px]', 'opacity-100');
+          menu.classList.add('max-h-0', 'opacity-0');
+        }
+      });
+    </script>
+  </nav>
+  
