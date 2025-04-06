@@ -1,19 +1,39 @@
 const express = require('express');
 const router = express.Router();
+const multer = require('multer');
+const fs = require('fs');
+const path = require('path');
 const { isAuthenticated, isNotAuthenticated } = require('../middleware/auth');
 const Gallery = require('../models/Gallery');
 const Package = require('../models/Package');
 const Booking = require('../models/Booking');
 const Contact = require('../models/Contact');
 
-// Login routes
+// 🗂️ Ensure uploads folder exists
+const uploadDir = path.join(__dirname, '..', 'public', 'uploads');
+if (!fs.existsSync(uploadDir)) {
+  fs.mkdirSync(uploadDir, { recursive: true });
+}
+
+// 📸 Multer configuration
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, uploadDir);
+  },
+  filename: function (req, file, cb) {
+    cb(null, Date.now() + '-' + file.originalname);
+  }
+});
+const upload = multer({ storage });
+
+// 🔐 Login routes
 router.get('/login', isNotAuthenticated, (req, res) => {
   res.render('admin/login');
 });
 
 router.post('/login', isNotAuthenticated, (req, res) => {
   const { username, password } = req.body;
-  
+
   if (username === process.env.ADMIN_USERNAME && password === process.env.ADMIN_PASSWORD) {
     req.session.isAuthenticated = true;
     res.redirect('/admin/dashboard');
@@ -22,14 +42,14 @@ router.post('/login', isNotAuthenticated, (req, res) => {
   }
 });
 
-// Dashboard routes
+// 📊 Admin Dashboard
 router.get('/dashboard', isAuthenticated, async (req, res) => {
   try {
     const galleries = await Gallery.find().sort('-createdAt');
     const packages = await Package.find().sort('-createdAt');
     const bookings = await Booking.find().sort('-createdAt');
     const contacts = await Contact.find().sort('-createdAt');
-    
+
     res.render('admin/dashboard', {
       galleries,
       packages,
@@ -41,19 +61,29 @@ router.get('/dashboard', isAuthenticated, async (req, res) => {
   }
 });
 
-// Gallery management routes
-router.post('/gallery', isAuthenticated, async (req, res) => {
+// 🖼️ Gallery Upload Route
+router.post('/gallery', isAuthenticated, upload.single('image'), async (req, res) => {
   try {
-    const { title, imageUrl } = req.body;
-    await Gallery.create({ title, imageUrl });
+    const { title } = req.body;
+    const imageFilename = req.file.filename;
+
+    await Gallery.create({ title, imageFilename });
     res.redirect('/admin/dashboard');
   } catch (error) {
     res.status(500).render('error', { error });
   }
 });
 
+// ❌ Delete Gallery
 router.delete('/gallery/:id', isAuthenticated, async (req, res) => {
   try {
+    const gallery = await Gallery.findById(req.params.id);
+    if (!gallery) return res.status(404).json({ error: 'Gallery not found' });
+
+    // Delete the image file from uploads folder
+    const filePath = path.join(uploadDir, gallery.imageFilename);
+    if (fs.existsSync(filePath)) fs.unlinkSync(filePath);
+
     await Gallery.findByIdAndDelete(req.params.id);
     res.json({ success: true });
   } catch (error) {
@@ -61,7 +91,7 @@ router.delete('/gallery/:id', isAuthenticated, async (req, res) => {
   }
 });
 
-// Package management routes
+// 🎁 Package Upload Route
 router.post('/package', isAuthenticated, async (req, res) => {
   try {
     const { name, description, price, imageUrl, features } = req.body;
@@ -72,6 +102,7 @@ router.post('/package', isAuthenticated, async (req, res) => {
   }
 });
 
+// ❌ Delete Package
 router.delete('/package/:id', isAuthenticated, async (req, res) => {
   try {
     await Package.findByIdAndDelete(req.params.id);
@@ -81,7 +112,7 @@ router.delete('/package/:id', isAuthenticated, async (req, res) => {
   }
 });
 
-// Logout route
+// 🚪 Logout
 router.get('/logout', isAuthenticated, (req, res) => {
   req.session.destroy();
   res.redirect('/admin/login');

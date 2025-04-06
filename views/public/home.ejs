@@ -183,7 +183,8 @@
         <% galleries.forEach(function(gallery) { %>
           <div class="relative group overflow-hidden rounded-3xl shadow-xl bg-white" data-aos="zoom-in">
             <!-- Image -->
-            <img src="<%= gallery.imageUrl %>" alt="<%= gallery.title %>" class="w-full h-60 object-cover rounded-3xl transform group-hover:scale-105 transition duration-500" />
+            <img src="/uploads/<%= gallery.imageFilename %>" alt="<%= gallery.title %>" class="w-full h-60 object-cover rounded-3xl transform group-hover:scale-105 transition duration-500" />
+
   
             <!-- Overlay -->
             <div class="absolute inset-0 bg-white bg-opacity-30 backdrop-blur-md flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300 rounded-3xl">

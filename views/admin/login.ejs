@@ -1,49 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Login - Royal Wedding Planners</title>
-    <link href="/css/output.css" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Login - Royal Wedding Planners</title>
+  <link href="/css/output.css" rel="stylesheet" />
+
+  <!-- Heroicons for icons -->
+  <script src="https://unpkg.com/feather-icons"></script>
 </head>
-<body class="bg-gray-100">
+<body class="bg-gradient-to-tr from-purple-100 to-yellow-50 min-h-screen flex items-center justify-center px-6">
 
-    <!-- Centered Login Form -->
-    <div class="min-h-screen flex items-center justify-center">
-        <div class="max-w-md w-full bg-white rounded-lg shadow-lg p-8">
-            <h2 class="text-2xl font-bold text-center text-purple-900 mb-8">Admin Login</h2>
-
-            <!-- Error Message -->
-            <% if (locals.error) { %>
-                <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
-                    <%= error %>
-                </div>
-            <% } %>
-
-            <!-- Login Form -->
-            <form action="/admin/login" method="POST">
-                <div class="mb-4">
-                    <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
-                        Username
-                    </label>
-                    <input class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent" 
-                           type="text" name="username" id="username" required>
-                </div>
-                
-                <div class="mb-6">
-                    <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
-                        Password
-                    </label>
-                    <input class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent" 
-                           type="password" name="password" id="password" required>
-                </div>
-                
-                <button type="submit" class="w-full bg-purple-600 text-white py-2 rounded-md hover:bg-purple-700 transition duration-300 ease-in-out">
-                    Login
-                </button>
-            </form>
-        </div>
+  <!-- Login Card -->
+  <div class="w-full max-w-md bg-white rounded-3xl shadow-xl p-8 sm:p-10 transition-all duration-300">
+    <div class="text-center">
+      <h2 class="text-3xl font-extrabold text-purple-800">Admin Login</h2>
+      <p class="text-sm text-gray-500 mt-1">Royal Wedding Planners</p>
     </div>
+
+    <!-- Error Message -->
+    <% if (locals.error) { %>
+      <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-md mt-4">
+        <%= error %>
+      </div>
+    <% } %>
+
+    <!-- Login Form -->
+    <form action="/admin/login" method="POST" class="mt-6 space-y-5" id="loginForm">
+      
+      <!-- Username -->
+      <div class="relative">
+        <label for="username" class="block text-sm font-medium text-gray-700 mb-1">Username</label>
+        <div class="flex items-center border border-gray-300 rounded-lg focus-within:ring-2 focus-within:ring-purple-500" id="usernameWrapper">
+          <span class="px-3 text-gray-400">
+            <i data-feather="user"></i>
+          </span>
+          <input 
+            type="text" 
+            id="username" 
+            name="username" 
+            required 
+            minlength="4"
+            class="w-full py-2 px-2 rounded-r-lg focus:outline-none bg-transparent text-gray-800" 
+            placeholder="Enter your username" />
+        </div>
+        <p id="usernameError" class="text-xs text-red-500 mt-1 hidden">Username must be at least 4 characters</p>
+      </div>
+
+      <!-- Password -->
+      <div class="relative">
+        <label for="password" class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+        <div class="flex items-center border border-gray-300 rounded-lg focus-within:ring-2 focus-within:ring-purple-500" id="passwordWrapper">
+          <span class="px-3 text-gray-400">
+            <i data-feather="lock"></i>
+          </span>
+          <input 
+            type="password" 
+            id="password" 
+            name="password" 
+            required 
+            minlength="8"
+            class="w-full py-2 px-2 rounded-r-lg focus:outline-none bg-transparent text-gray-800" 
+            placeholder="Enter your password" />
+        </div>
+        <p id="passwordError" class="text-xs text-red-500 mt-1 hidden">Password must be at least 8 characters</p>
+      </div>
+
+      <!-- Submit Button -->
+      <div>
+        <button type="submit"
+          class="w-full flex justify-center items-center bg-purple-600 text-white py-2.5 rounded-lg font-semibold hover:bg-purple-700 transition duration-300">
+          <i data-feather="log-in" class="mr-2"></i> Login
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    feather.replace(); // Activate feather icons
+
+    const form = document.getElementById('loginForm');
+    const username = document.getElementById('username');
+    const password = document.getElementById('password');
+    const usernameError = document.getElementById('usernameError');
+    const passwordError = document.getElementById('passwordError');
+    const usernameWrapper = document.getElementById('usernameWrapper');
+    const passwordWrapper = document.getElementById('passwordWrapper');
+
+    form.addEventListener('submit', function (e) {
+      let isValid = true;
+
+      // Username validation
+      if (username.value.trim().length < 4) {
+        usernameWrapper.classList.add('border-red-500');
+        usernameError.classList.remove('hidden');
+        isValid = false;
+      } else {
+        usernameWrapper.classList.remove('border-red-500');
+        usernameError.classList.add('hidden');
+      }
+
+      // Password validation
+      if (password.value.trim().length < 8) {
+        passwordWrapper.classList.add('border-red-500');
+        passwordError.classList.remove('hidden');
+        isValid = false;
+      } else {
+        passwordWrapper.classList.remove('border-red-500');
+        passwordError.classList.add('hidden');
+      }
+
+      if (!isValid) {
+        e.preventDefault(); // Prevent form submission
+      }
+    });
+  </script>
 
 </body>
 </html>

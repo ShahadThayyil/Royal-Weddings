@@ -5,7 +5,7 @@ const gallerySchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  imageUrl: {
+  imageFilename: {   // ✅ renamed field to match uploaded filename
     type: String,
     required: true
   },
@@ -13,6 +13,6 @@ const gallerySchema = new mongoose.Schema({
     type: Date,
     default: Date.now
   }
-});
+}); 
 
 module.exports = mongoose.model('Gallery', gallerySchema);
