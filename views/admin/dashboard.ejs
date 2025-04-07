@@ -40,15 +40,32 @@
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
           <% galleries.forEach(function(gallery) { %>
             <div class="relative group">
-              <img src="/uploads/<%= gallery.imageFilename %>" alt="<%= gallery.title %>" class="w-full h-48 object-cover rounded-lg shadow-md transform group-hover:scale-105 transition duration-500">
-              <button onclick="deleteGallery('<%= gallery._id %>')" class="absolute top-2 right-2 bg-red-500 text-white p-2 rounded-full hover:bg-red-600 transition duration-300">
-                <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <img 
+                src="/uploads/<%= gallery.imageFilename %>" 
+                alt="<%= gallery.title %>" 
+                class="w-full h-48 object-cover rounded-lg shadow-md transform group-hover:scale-105 transition duration-500"
+              >
+              
+              <!-- Delete Button -->
+              <button 
+                onclick="deleteGallery('<%= gallery._id %>')" 
+                class="absolute top-3 right-3 p-2 bg-red-100 hover:bg-red-500 text-red-600 hover:text-white rounded-full shadow-lg transition duration-300"
+                title="Delete Image"
+              >
+                <svg 
+                  class="w-5 h-5" 
+                  xmlns="http://www.w3.org/2000/svg" 
+                  fill="none" 
+                  viewBox="0 0 24 24" 
+                  stroke="currentColor"
+                >
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
                 </svg>
               </button>
             </div>
           <% }); %>
         </div>
+        
       </div>
     </div>
 
@@ -56,23 +73,30 @@
     <div class="mb-12">
       <h2 class="text-2xl font-bold text-purple-900 mb-6">Package Management</h2>
       <div class="bg-white rounded-lg shadow-lg p-6">
-        <form action="/admin/package" method="POST" class="mb-8 space-y-4">
+        <form action="/admin/package" method="POST" enctype="multipart/form-data" class="mb-8 space-y-4">
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <input type="text" name="name" placeholder="Package Name" class="input-field" required>
             <input type="number" name="price" placeholder="Price" class="input-field" required>
-            <input type="text" name="imageUrl" placeholder="Image URL" class="input-field" required>
+            <input type="file" name="image" accept="image/*" class="input-field" required>
             <textarea name="description" placeholder="Description" class="input-field" required></textarea>
           </div>
           <button type="submit" class="w-full py-2 bg-yellow-500 text-purple-900 rounded-md font-semibold hover:bg-yellow-400 transition duration-300">Add Package</button>
         </form>
-
+    
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
           <% packages.forEach(function(package) { %>
-            <div class="relative bg-gray-50 rounded-lg p-4 shadow-md">
+            <div class="relative bg-gray-50 rounded-lg p-4 shadow-md group">
+              <img src="<%= package.imageUrl %>" alt="Package Image" class="w-full h-40 object-cover rounded mb-3">
               <h3 class="text-xl font-bold text-purple-900 mb-2"><%= package.name %></h3>
               <p class="text-gray-600 mb-2"><%= package.description %></p>
               <p class="text-yellow-500 font-bold">$<%= package.price %></p>
-              <button onclick="deletePackage('<%= package._id %>')" class="absolute top-2 right-2 text-red-500 hover:text-red-600 font-semibold transition duration-300">
+        
+              <!-- Delete Button -->
+              <button 
+                onclick="deletePackage('<%= package._id %>')" 
+                class="absolute top-3 right-3 p-2 bg-red-100 hover:bg-red-500 text-red-600 hover:text-white rounded-full shadow-md transition duration-300 tooltip"
+                title="Delete Package"
+              >
                 <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
                 </svg>
@@ -82,6 +106,7 @@
         </div>
       </div>
     </div>
+    
 
     <!-- Booking Management -->
     <div class="mb-12">

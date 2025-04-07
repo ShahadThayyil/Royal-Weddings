@@ -80,7 +80,6 @@ router.delete('/gallery/:id', isAuthenticated, async (req, res) => {
     const gallery = await Gallery.findById(req.params.id);
     if (!gallery) return res.status(404).json({ error: 'Gallery not found' });
 
-    // Delete the image file from uploads folder
     const filePath = path.join(uploadDir, gallery.imageFilename);
     if (fs.existsSync(filePath)) fs.unlinkSync(filePath);
 
@@ -91,20 +90,35 @@ router.delete('/gallery/:id', isAuthenticated, async (req, res) => {
   }
 });
 
-// 🎁 Package Upload Route
-router.post('/package', isAuthenticated, async (req, res) => {
+// 🎁 Package Upload Route (with image upload)
+router.post('/package', isAuthenticated, upload.single('image'), async (req, res) => {
   try {
-    const { name, description, price, imageUrl, features } = req.body;
-    await Package.create({ name, description, price, imageUrl, features });
+    const { name, description, price, features } = req.body;
+    const imageFilename = req.file.filename;
+
+    await Package.create({
+      name,
+      description,
+      price,
+      features,
+      imageUrl: `/uploads/${imageFilename}`
+    });
+
     res.redirect('/admin/dashboard');
   } catch (error) {
     res.status(500).render('error', { error });
   }
 });
 
-// ❌ Delete Package
+// ❌ Delete Package (and image file)
 router.delete('/package/:id', isAuthenticated, async (req, res) => {
   try {
+    const pack = await Package.findById(req.params.id);
+    if (!pack) return res.status(404).json({ error: 'Package not found' });
+
+    const filePath = path.join(uploadDir, path.basename(pack.imageUrl));
+    if (fs.existsSync(filePath)) fs.unlinkSync(filePath);
+
     await Package.findByIdAndDelete(req.params.id);
     res.json({ success: true });
   } catch (error) {
